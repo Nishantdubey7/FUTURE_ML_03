@@ -1,172 +1,133 @@
-📄 Resume Screening & Candidate Ranking System
-Machine Learning–Based Automated Resume Evaluation
+# 📄 Resume Screening & Candidate Ranking System
+### Machine Learning–Based Automated Resume Evaluation
 
-📌 Overview
+---
 
-This project presents a Machine Learning–based Resume Screening System designed to automatically evaluate and rank resumes based on their relevance to a specific job description.
+## 📌 Overview
 
-The system applies Natural Language Processing (NLP) techniques and TF-IDF vectorization to measure the similarity between candidate resumes and a target job role. It generates ranked results along with identified skills and missing competencies, supporting more efficient and data-driven recruitment decisions.
+This project presents a **Machine Learning–based Resume Screening System** designed to automatically evaluate and rank resumes based on their relevance to a specific job description.  
 
-🎯 Project Objective
+The system uses **Natural Language Processing (NLP)** and **TF-IDF vectorization** to measure similarity between candidate resumes and a target job role. It generates ranked results along with identified skills and missing competencies, supporting efficient and data-driven recruitment decisions.
 
-To build an intelligent screening pipeline that:
+---
 
-Automatically processes resume data
+## 🎯 Project Objective
 
-Extracts relevant technical skills
+The goal of this project is to build an intelligent screening pipeline that can:
 
-Compares resumes with a defined job description
+- Automatically process resume data  
+- Extract relevant technical skills  
+- Compare resumes with a defined job description  
+- Calculate similarity scores  
+- Rank candidates based on relevance  
+- Identify missing required skills  
 
-Calculates similarity scores
+---
 
-Ranks candidates based on relevance
+## 🛠️ Technologies & Libraries Used
 
-Identifies missing required skills
+- **Python**  
+- **Pandas** – Data manipulation  
+- **Scikit-learn** – TF-IDF Vectorization & Cosine Similarity  
+- **Regular Expressions (re)** – Text preprocessing  
 
-🛠️ Technologies & Libraries Used
+---
 
-Python
+## 📂 Repository Structure
+├── Resume.csv # Input dataset containing resume data
 
-Pandas – Data manipulation
+├── resume_screening.py # Main Python script
 
-Scikit-learn – TF-IDF Vectorization & Cosine Similarity
+├── ranked_resumes.csv # Output file with ranked candidates
 
-Regular Expressions (re) – Text preprocessing
+├── README.md # Project documentation
 
-📂 Repository Structure
 
-This repository contains the following 4 files:
+---
 
-├── Resume.csv              # Input dataset containing resume data
-├── resume_screening.py     # Main Python script
-├── ranked_resumes.csv      # Output file with ranked candidates
-├── README.md               # Project documentation
+## 📊 Dataset Description
 
-📊 Dataset Description
+**Resume.csv** contains:  
 
-Resume.csv contains:
-
-Resume_str – Full resume text
-
-Category – Resume domain/category
+- `Resume_str` – Full resume text  
+- `Category` – Resume domain/category  
 
 The script preprocesses and standardizes the text before performing analysis.
 
-⚙️ System Workflow
-1️⃣ Data Preprocessing
+---
 
-Convert text to lowercase
+## ⚙️ System Workflow
 
-Remove numbers and special characters
+### 1️⃣ Data Preprocessing
+- Convert text to lowercase  
+- Remove numbers and special characters  
+- Remove extra spaces  
+- Normalize text for analysis  
 
-Remove extra spaces
-
-Normalize text for analysis
-
-2️⃣ Skill Extraction
-
+### 2️⃣ Skill Extraction
 A predefined skill set is used to identify relevant competencies, including:
 
-Python
+- Python  
+- Machine Learning  
+- Data Analysis  
+- SQL  
+- Statistics  
+- Pandas  
+- NumPy  
+- Scikit-learn  
+- Visualization  
+- Deep Learning  
+- NLP  
+- Cloud  
+- TensorFlow  
+- Keras  
 
-Machine Learning
+### 3️⃣ Feature Engineering
+- Convert resumes and job description into numerical vectors using **TF-IDF Vectorization**  
+- Remove English stop words  
+- Limit feature space to 5000 features  
 
-Data Analysis
+### 4️⃣ Similarity Computation
+- Use **Cosine Similarity** to compare each resume to the job description  
+- Generate a `match_score` (higher score = better match)  
 
-SQL
+### 5️⃣ Ranking & Skill Gap Analysis
+- Sort resumes by similarity score  
+- Assign ranking automatically  
+- Identify missing required skills  
 
-Statistics
+---
 
-Pandas
-
-NumPy
-
-Scikit-learn
-
-Visualization
-
-Deep Learning
-
-NLP
-
-Cloud
-
-TensorFlow
-
-Keras
-
-3️⃣ Feature Engineering
-
-TF-IDF Vectorization converts text into numerical vectors
-
-English stop words are removed
-
-Feature space limited to 5000 features
-
-4️⃣ Similarity Computation
-
-Cosine Similarity compares each resume to the job description
-
-A match_score is generated (higher score = better match)
-
-5️⃣ Ranking & Skill Gap Analysis
-
-Resumes are sorted by similarity score
-
-Ranking is assigned automatically
-
-Missing required skills are identified
-
-📈 Output
+## 📈 Output
 
 The system generates:
 
-📄 ranked_resumes.csv
+### 📄 `ranked_resumes.csv`
 
-With the following columns:
+Columns include:
 
-rank
+- `rank`  
+- `category`  
+- `match_score`  
+- `skills_found`  
+- `missing_skills`  
 
-category
+Additionally, the script prints the **Top 10 ranked candidates** in the console.
 
-match_score
+---
 
-skills_found
-
-missing_skills
-
-Additionally, the script prints the Top 10 ranked candidates in the console.
-
-▶️ How to Run the Project
-Step 1: Install Required Libraries
-pip install pandas scikit-learn
-
-Step 2: Ensure File Placement
-
-Make sure the following files are in the same directory:
-
-Resume.csv
-
-resume_screening.py
-
-Step 3: Execute the Script
-python resume_screening.py
-
-
-The output file ranked_resumes.csv will be generated automatically.
-
-💡 Practical Use Case
+## 💡 Practical Use Case
 
 For example, when hiring for a Data Scientist role, this system:
 
-Screens all resumes automatically
+-Screens all resumes automatically
 
-Identifies relevant technical skills
+-Identifies relevant technical skills
 
-Scores candidates against the job description
+-Scores candidates against the job description
 
-Ranks them from best to least fit
+-Ranks candidates from best to least fit
 
-Highlights skill gaps
+-Highlights skill gaps
 
 This significantly reduces manual screening effort and improves consistency in candidate evaluation.
